@@ -23,11 +23,11 @@ mongoose.connection.on('error', (err) => {
 });
 
 
-app.use('/dash', dash);
+app.use(express.static(__dirname + 'dist/tru-force'));
 
-app.get('/', (req, res) => {
-  res.send('Invalid');
-})
+app.get('/*', function(req,res) {
+    res.sendFile(path.join(__dirname+'dist/tru-force/index.html'));
+});
 
 app.listen(port, ()=> {
   console.log('Server started on port '+ port)
