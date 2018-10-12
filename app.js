@@ -29,6 +29,6 @@ app.get('/', (req, res) => {
   res.send('Invalid');
 })
 
-app.listen(port, ()=> {
+app.listen(process.env.PORT || port, ()=> {
   console.log('Server started on port '+ port)
 });
