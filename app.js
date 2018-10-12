@@ -25,9 +25,9 @@ mongoose.connection.on('error', (err) => {
 
 app.use('/dash', dash);
 
-// app.get('/', (req, res) => {
-//   res.send('Invalid');
-// })
+app.get('/', (req, res) => {
+  res.send('Invalid');
+})
 
 app.listen(process.env.PORT || port, ()=> {
   console.log('Server started on port '+ port)
