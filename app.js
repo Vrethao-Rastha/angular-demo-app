@@ -22,7 +22,9 @@ mongoose.connection.on('error', (err) => {
   console.log('Database Error ' + err);
 });
 
-
+app.get('/', (req, res) => {
+  res.send('works')
+})
 
 
 app.listen(port, () => {
