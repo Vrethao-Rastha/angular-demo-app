@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database')
 const app = express();
 const dash = require('./routes/dash')
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,6 +29,6 @@ app.get('/', (req, res) => {
   res.send('Invalid');
 })
 
-app.listen(process.env.PORT || port, ()=> {
+app.listen(port, ()=> {
   console.log('Server started on port '+ port)
 });
