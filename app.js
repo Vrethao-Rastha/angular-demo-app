@@ -22,6 +22,8 @@ mongoose.connection.on('error', (err) => {
   console.log('Database Error ' + err);
 });
 
+app.use('/dash', dash)
+
 app.get('/', (req, res) => {
   res.send('works')
 })
