@@ -1,3 +1,3 @@
 module.exports = {
-  database: process.env.MONGODB_URI
+  database: `mongodb://Vulkan:Vulkan1@ds121696.mlab.com:21696/ticket-lord`
 }
