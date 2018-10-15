@@ -1,0 +1,58 @@
+<div class='card'>
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type='text'
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class='row'
+         *ngIf='listFilter'>
+      <div class='col-md-6'>
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+    <div class='table-responsive'>
+      <table class='table'
+             *ngIf='tickets && tickets.length'>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Department</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let ticket of filteredTickets'>
+
+            <td>
+              <a [routerLink]="['/tickets', ticket._id]">
+                {{ ticket.title }}
+              </a>
+            </td>
+            <td>{{ticket.description}} </td>
+            <td>{{ticket.status}} </td>
+            <td>{{ticket.department}} </td>
+            <td>{{ticket.notes}} </td>
+            <td>
+              <a class="btn btn-primary"
+                 [routerLink]="['/tickets', ticket._id, 'edit']">
+                Edit
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>

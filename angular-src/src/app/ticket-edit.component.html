@@ -1,0 +1,119 @@
+<div class="card">
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          autocomplete="off"
+          (ngSubmit)="saveTicket()"
+          [formGroup]="ticketForm">
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="ticketTitleId">Ticket Title</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="ticketTitleId"
+                 type="text"
+                 placeholder="Name (required)"
+                 name="title"
+                 formControlName="ticketTitle"
+                 [ngClass]="{'is-invalid': displayMessage.ticketTitle }" />
+          <span class="invalid-feedback">
+            {{displayMessage.ticketTitle}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label"
+               for="ticketDescription">Ticket Description</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="ticketDescriptionId"
+                 type="text"
+                 placeholder="Description (required)"
+                 name="description"
+                 formControlName="ticketDescription"
+                 [ngClass]="{'is-invalid': displayMessage.ticketDescription}" />
+          <span class="invalid-feedback">
+            {{displayMessage.ticketDescription}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+
+                       <label class="col-md-2 control-label"
+                           for="statusId">Status</label>
+
+                       <div class="col-md-8">
+                         <select class="col-md-3 form-control"
+                         (change)="onStatusChange($event.target.value)"
+                         id="ticketStatusId"
+                         name="status"
+                         FormControlName="ticketStatus">
+                            <option
+
+                             *ngFor = "let s of status"
+                            value={{s.value}}> {{s.value}} ></option>
+
+
+                         </select>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+
+                     <label class="col-md-2 control-label"
+                      for="departmentId">Department</label>
+
+                      <div class="col-md-8">
+                        <select class="col-md-3 form-control"
+                        (change)="onDepartmentChange($event.target.value)"
+                          id="ticketDepartmentId"
+                          name="department"
+                          FormControlName="ticketDepartment">
+
+                            <option
+                             *ngFor = "let d of department"
+                              value={{d.value}}> {{d.value}} ></option>
+                        </select>
+                      </div>
+                    </div>
+
+      <div class="form-group row">
+        <div class="col-md-1">
+          <button class="btn btn-primary"
+                  style='width:80px'
+                  type="submit"
+                  >
+            Save
+          </button>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-outline-secondary"
+                  style='width:80px'
+                  type="button"
+                  [routerLink]="['/tickets']">
+            Cancel
+          </button>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-outline-warning"
+                  style='width:80px'
+                  type="button"
+                  (click)="deleteTicket()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p class="col-md-12"> </p>
+
+  <div class='alert alert-danger'
+       *ngIf='errorMessage'>{{errorMessage}}
+  </div>
+</div>
