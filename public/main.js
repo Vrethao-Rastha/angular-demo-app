@@ -135,7 +135,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    {{pageTitle}}\n    <p style=\"font-size: 20pt\"  class=\"text-center\">Supercharge your ticket management system</p>\n\n  </div>\n  <div class=\"card-body\">\n    <div class=\"container-fluid\">\n      <div class=\"text-center\">\n        <img src=\"src/assets/cellphone-coffee-desk-860379.jpg\"\n             class=\"img-responsive center-block\"\n             style=\"height:350px\" />\n      </div>\n\n\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    {{pageTitle}}\n    <p style=\"font-size: 20pt\"  class=\"text-center\">Supercharge your ticket management system</p>\n\n  </div>\n  <div class=\"card-body\">\n    <div class=\"container-fluid\">\n      <div class=\"text-center\">\n        <img [src]=\"LOGO\"\n             class=\"img-responsive center-block\"\n             style=\"height:350px\" />\n      </div>\n\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -162,6 +162,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var LandingComponent = /** @class */ (function () {
     function LandingComponent() {
+        this.LOGO = './assets/cellphone-coffee-desk-860379.jpg';
     }
     LandingComponent.prototype.ngOnInit = function () {
     };

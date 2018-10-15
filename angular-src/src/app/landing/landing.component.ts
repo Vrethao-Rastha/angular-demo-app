@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  private LOGO = './assets/cellphone-coffee-desk-860379.jpg';
 
   constructor() { }
 
